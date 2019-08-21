@@ -1,1 +1,3 @@
-# nginx.proxy.server
+# Docker Proxy
+
+## nginx.proxy.server
