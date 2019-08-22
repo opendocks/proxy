@@ -15,6 +15,11 @@ The is based on  [jwilder/docker-gen](https://github.com/jwilder/docker-gen). Al
 
 - You need to specify VIRTUAL_HOST as environment for apache service, if you are using [Docker Site](https://github.com/smurtazakazmi/dock.s) with this project, you just need to update .env file for APACHE_VIRTUAL_HOST variable.
 
+- Run service
+```bash
+    docker-compose up
+```
+
 - Enjoy :)
 
 
