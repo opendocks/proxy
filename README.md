@@ -9,6 +9,11 @@ This will setup service for auto handling of reverse proxy, this also uses [jrcs
 ```bash
     git clone git@github.com:opendock/o-proxy.git
 ```
+- Create `certs` sub directory
+
+- Create `vhost.d` sub directory
+
+- Create docker network using command
 
 - Create docker network using command
 ```bash
