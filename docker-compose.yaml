@@ -3,7 +3,7 @@ version: '3'
 services:
 
   nginx-proxy:
-    image: smurtazakazi/nginx-proxy
+    image: opendock/nginx-proxy
     build:
       context: ./nginx-proxy
     container_name: ${NGINX_PROXY_SERVER}
