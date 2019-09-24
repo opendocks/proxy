@@ -1,20 +1,34 @@
-## Docker Proxy Network
+## OpenDock Proxy
 
-The is based on  [jwilder/docker-gen](https://github.com/jwilder/docker-gen). All credits goes to the MAN :)
+The is based on  [jwilder/nginx-proxy](https://github.com/jwilder/nginx-proxy). All credits goes to the MAN :)
+
+This will setup service for auto handling of reverse proxy, this also uses [jrcs/letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion) to automate SSL certificates.
 
 ### How to use for project
-- Clone this repo using command 
+- Clone this o-proxy repository using command 
 ```bash
-    git clone git@github.com:smurtazakazmi/dock.p.git
+    git clone git@github.com:opendock/o-proxy.git
 ```
 
 - Create docker network using command
 ```bash
-    docker network create nginx-proxy
+    docker network create net1-nginx-proxy
 ```
 
-- You need to specify VIRTUAL_HOST as environment for apache service, if you are using [Docker Site](https://github.com/smurtazakazmi/dock.s) with this project, you just need to update .env file for APACHE_VIRTUAL_HOST variable.
+- You need to specify VIRTUAL_HOST & VIRTUAL_PORT as environment for apache service to handle reverse proxy. 
 
+- You need to specify LETSENCRYPT_HOST & LETSENCRYPT_EMAIL as environment for apache service, to handle SSL certificates.
+
+    - BONUS, If you are using [OpenDock Template](https://github.com/opendock/o-template) with this project, you just need to update .env file for APACHE_VIRTUAL_HOST & APACHE_HTTP_PORT variable and provide in apache service asbelow.
+    
+        ```yaml
+        environment:
+              VIRTUAL_HOST: ${APACHE_VIRTUAL_HOST}
+              VIRTUAL_PORT: ${APACHE_HTTP_PORT}
+              LETSENCRYPT_HOST: ${APACHE_VIRTUAL_HOST}
+              LETSENCRYPT_EMAIL: example@email.com
+        ```
+      
 - Run service
 ```bash
     docker-compose up
