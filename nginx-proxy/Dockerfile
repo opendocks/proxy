@@ -14,8 +14,8 @@ ARG DEVELOPMENT_MODE=false
 
 RUN if [ ${DEVELOPMENT_MODE} = true ]; then \
     # Install vim editor
-    apt-get install -yqq --no-install-recommends\
-    vim
+    apt-get install -yqq --no-install-recommends \
+    vim \
 ;fi
 
 # Clean up
