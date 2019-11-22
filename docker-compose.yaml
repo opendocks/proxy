@@ -25,7 +25,7 @@ services:
     image: jrcs/letsencrypt-nginx-proxy-companion
     container_name: ${NGINX_LETSENCRYPT_SERVER}
     depends_on:
-      - "${NGINX_PROXY_SERVER}"
+      - nginx-proxy
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ${APP_BASE_DIR}/vhost.d:/etc/nginx/vhost.d
